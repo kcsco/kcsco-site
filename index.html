@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keating Consulting Service | IT Consulting & AI Solutions</title>
+<meta name="description" content="Full-service IT consulting since 1983. M365, Sage 300, network infrastructure, AI integration, and managed services across the Puget Sound region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0f1923;
+    --slate:     #2c3e50;
+    --mid:       #6b7c8d;
+    --light:     #e8ecf0;
+    --paper:     #f5f4f0;
+    --white:     #ffffff;
+    --accent:    #c8912a;
+    --accent2:   #1a4a6b;
+    --rule:      #d4c9b8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── UTILITY ─────────────────────────────────────────── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* ── NAV ──────────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 0;
+  }
+  nav .inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  }
+  .nav-logo {
+    display: flex; flex-direction: column; line-height: 1.1;
+    text-decoration: none; color: var(--ink);
+  }
+  .nav-logo .kcs { font-family: 'DM Serif Display', serif; font-size: 1.35rem; letter-spacing: .03em; }
+  .nav-logo .sub { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 300; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--mid); font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 7rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,74,107,.45) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,145,42,.12) 0%, transparent 60%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    line-height: 1.1; letter-spacing: -.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-lead {
+    font-size: 1.05rem; color: rgba(255,255,255,.72);
+    line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: .75rem 1.75rem;
+    font-size: .85rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px; transition: all .2s;
+  }
+  .btn-primary { background: var(--accent); color: var(--white); }
+  .btn-primary:hover { background: #b07e22; }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.3); color: var(--white); }
+  .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+  .hero-stats {
+    display: flex; flex-direction: column; gap: 2rem;
+    border-left: 1px solid rgba(255,255,255,.12); padding-left: 3rem;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; line-height: 1; color: var(--white);
+    margin-bottom: .25rem;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+
+  /* ── TAGLINE STRIP ───────────────────────────────────── */
+  .strip {
+    background: var(--accent2);
+    color: rgba(255,255,255,.85);
+    padding: 1.1rem 0;
+    font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-align: center;
+    font-weight: 400;
+  }
+
+  /* ── SECTION BASE ────────────────────────────────────── */
+  section { padding: 5rem 0; }
+  .section-label {
+    font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: .75rem;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); display: block; }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15; color: var(--ink); margin-bottom: 1.25rem;
+  }
+  .lead { font-size: 1.05rem; color: var(--mid); line-height: 1.7; font-weight: 300; max-width: 52ch; }
+
+  /* ── SERVICES ────────────────────────────────────────── */
+  .services { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0; margin-top: 3.5rem;
+    border: 1px solid var(--rule);
+  }
+  .svc-card {
+    padding: 2.25rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background .2s;
+    position: relative;
+  }
+  .svc-card:hover { background: var(--paper); }
+  .svc-icon {
+    width: 2.5rem; height: 2.5rem; margin-bottom: 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--paper); border-radius: 2px;
+  }
+  .svc-icon svg { width: 1.25rem; height: 1.25rem; stroke: var(--accent2); fill: none; stroke-width: 1.5; }
+  .svc-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: .6rem; }
+  .svc-card p { font-size: .88rem; color: var(--mid); line-height: 1.65; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+  .tag {
+    font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent2); background: rgba(26,74,107,.07);
+    padding: .2rem .5rem; border-radius: 2px; font-weight: 500;
+  }
+
+  /* ── AI SECTION ──────────────────────────────────────── */
+  .ai-section {
+    background: var(--ink); color: var(--white);
+    padding: 5rem 0;
+  }
+  .ai-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .ai-section .section-label { color: var(--accent); }
+  .ai-section h2 { color: var(--white); }
+  .ai-section .lead { color: rgba(255,255,255,.65); max-width: 44ch; }
+  .ai-section p { color: rgba(255,255,255,.65); font-size: .92rem; line-height: 1.75; margin-bottom: 1rem; font-weight: 300; }
+  .ai-callout {
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 2rem; border-radius: 2px;
+    background: rgba(255,255,255,.04);
+  }
+  .ai-callout-label { font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .ai-callout blockquote {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.2rem; line-height: 1.5; color: rgba(255,255,255,.85);
+    margin-bottom: 1rem;
+  }
+  .ai-callout cite { font-size: .78rem; color: rgba(255,255,255,.4); letter-spacing: .06em; }
+  .book-link {
+    display: inline-flex; align-items: center; gap: .6rem;
+    margin-top: 1.5rem; color: var(--accent); text-decoration: none;
+    font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 500;
+    transition: gap .2s;
+  }
+  .book-link:hover { gap: .9rem; }
+  .book-link::after { content: '→'; }
+
+  /* ── TEAM ─────────────────────────────────────────────── */
+  .team { background: var(--paper); }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem; margin-top: 3.5rem;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .team-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .team-initials {
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: var(--accent2); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif; font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+  .team-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: .2rem; }
+  .team-card .role { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: .85rem; }
+  .team-card p { font-size: .86rem; color: var(--mid); line-height: 1.65; }
+
+  /* ── PARTNER ─────────────────────────────────────────── */
+  .partner {
+    background: var(--white); border-top: 1px solid var(--rule);
+    padding: 3.5rem 0;
+  }
+  .partner-inner { display: flex; gap: 3rem; align-items: flex-start; }
+  .partner-badge {
+    flex-shrink: 0; width: 5rem; height: 5rem;
+    border: 1px solid var(--rule); border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--paper);
+  }
+  .partner-badge svg { width: 2.5rem; height: 2.5rem; fill: var(--accent2); }
+  .partner h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: .5rem; }
+  .partner p { font-size: .88rem; color: var(--mid); line-height: 1.65; max-width: 55ch; }
+
+  /* ── CLIENTS / COVERAGE ──────────────────────────────── */
+  .coverage { background: var(--paper); border-top: 1px solid var(--rule); }
+  .coverage-grid {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; margin-top: 3rem;
+  }
+  .coverage-list { list-style: none; }
+  .coverage-list li {
+    padding: .6rem 0; border-bottom: 1px solid var(--rule);
+    font-size: .88rem; color: var(--slate);
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .coverage-list li::before { content: '·'; color: var(--accent); font-size: 1.2rem; line-height: 1; }
+  .counties {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+  }
+  .county {
+    font-size: .75rem; padding: .3rem .7rem;
+    border: 1px solid var(--rule); border-radius: 2px;
+    color: var(--mid); background: var(--white);
+  }
+
+  /* ── CONTACT ─────────────────────────────────────────── */
+  .contact { background: var(--accent2); color: var(--white); padding: 5rem 0; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact .section-label { color: rgba(255,255,255,.5); }
+  .contact .section-label::before { background: rgba(255,255,255,.5); }
+  .contact h2 { color: var(--white); }
+  .contact .lead { color: rgba(255,255,255,.65); }
+  .contact-item { margin-bottom: 1.5rem; }
+  .contact-item .label { font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: .3rem; }
+  .contact-item a, .contact-item p {
+    color: var(--white); text-decoration: none; font-size: .95rem;
+    line-height: 1.5;
+  }
+  .contact-item a:hover { color: var(--accent); }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,.35);
+    padding: 2rem 0;
+    font-size: .75rem; letter-spacing: .05em;
+  }
+  footer .inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  footer a { color: rgba(255,255,255,.35); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ──────────────────────────────────────── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp .7s ease both; }
+  .delay-1 { animation-delay: .1s; }
+  .delay-2 { animation-delay: .22s; }
+  .delay-3 { animation-delay: .34s; }
+  .delay-4 { animation-delay: .46s; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero-inner, .ai-inner, .contact-grid, .coverage-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding-top: 2rem; flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+    .stat-num { font-size: 2.2rem; }
+    .partner-inner { flex-direction: column; gap: 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a href="/" class="nav-logo">
+      <img src="KCSLOGO-240.png" alt="Keating Consulting Service" style="height:48px; width:auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#ai">AI &amp; Innovation</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fade-up">Established 1983 · Bainbridge Island, WA</div>
+      <h1 class="fade-up delay-1">Integrating People, <em>Business</em> and Technology.</h1>
+      <p class="hero-lead fade-up delay-2">Full-service IT consulting built around relationships first. We help organizations across the Puget Sound Region — and nationally — make technology work for the people who depend on it.</p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#services" class="btn btn-ghost">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-item">
+        <div class="stat-num">40<span>+</span></div>
+        <div class="stat-label">Years in Practice</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Active Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">NIST</div>
+        <div class="stat-label">800-171 Self-Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">M365 · Security &amp; Compliance · Sage 300 · AI Integration · Ubiquiti UniFi · Managed Services</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2>Full-stack IT. One trusted team.</h2>
+    <p class="lead">From day-to-day support to complex compliance work, we meet clients where they are — and grow with them.</p>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Security &amp; Compliance</h3>
+        <p>Security policy, risk assessment, NIST 800-171 compliance support, and vendor coordination for clients navigating regulatory frameworks including CMMC certification pathways.</p>
+        <div class="svc-tags"><span class="tag">NIST 800-171</span><span class="tag">Risk Assessment</span><span class="tag">Policy</span><span class="tag">Compliance</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Microsoft 365 &amp; Cloud</h3>
+        <p>Full M365 deployment, migration, and ongoing management. Exchange, Teams, SharePoint, Azure AD, and licensing strategy for organizations of any size.</p>
+        <div class="svc-tags"><span class="tag">M365</span><span class="tag">Azure</span><span class="tag">SharePoint</span><span class="tag">Teams</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>Legacy Applications</h3>
+        <p>Deep expertise in Sage 300, Sage Timberline, Sage Master Builder, and vertical market applications. We keep mission-critical legacy systems running and integrated.</p>
+        <div class="svc-tags"><span class="tag">Sage 300</span><span class="tag">Timberline</span><span class="tag">QuickBooks</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"/><circle cx="17" cy="18" r="3"/><path d="m19.5 20.5 2 2"/></svg>
+        </div>
+        <h3>Network &amp; Infrastructure</h3>
+        <p>LAN/WAN design and support built around Ubiquiti UniFi — deployed across a dozen client sites. Server procurement, desktop support, and remote monitoring across the full stack.</p>
+        <div class="svc-tags"><span class="tag">Ubiquiti UniFi</span><span class="tag">LAN/WAN</span><span class="tag">Server</span><span class="tag">RMM</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Custom Development</h3>
+        <p>Database design, middleware, web applications, and business process automation. SQL, PHP, WordPress, and integration work spanning modern and legacy platforms.</p>
+        <div class="svc-tags"><span class="tag">SQL</span><span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">Integration</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Managed &amp; Fractional IT</h3>
+        <p>Proactive maintenance combined with on-call support. Trusted advisor model for smaller organizations who need a complete IT team without the overhead.</p>
+        <div class="svc-tags"><span class="tag">MSP</span><span class="tag">vCIO</span><span class="tag">Help Desk</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-section" id="ai">
+  <div class="container">
+    <div class="ai-inner">
+      <div>
+        <div class="section-label">AI &amp; Innovation</div>
+        <h2>Practical AI for real organizations.</h2>
+        <p>We're not selling AI hype. We're integrating it — carefully, strategically, and with a clear eye on what your organization actually needs. From workflow automation to AI-augmented consulting, KCS brings 40 years of systems thinking to the AI era.</p>
+        <p>Our work includes AI strategy for small businesses and nonprofits, M365 Copilot deployment, and custom AI tooling. Through K2 Strategic we address policy and management consulting at the intersection of technology and leadership. Our newest venture, <strong style="color:rgba(255,255,255,.85)">Convexus</strong>, is focused on AI and robotics software development.</p>
+        <a href="https://thevisualatlas.org" class="book-link" target="_blank" rel="noopener">The Visual Atlas of Reality — New Book by Charles Keating</a>
+      </div>
+      <div class="ai-callout">
+        <div class="ai-callout-label">Convexus · New Venture</div>
+        <blockquote>"AI and robotics software development — built at the intersection of engineering discipline and practical business experience."</blockquote>
+        <cite>— Doña &amp; Merrill Keating, Co-Founders</cite>
+        <br><br>
+        <p style="font-size:.84rem; color:rgba(255,255,255,.55); line-height:1.65;">Convexus is our emerging AI and robotics startup, led by Merrill Keating (BSME, University of Washington) and co-founded with Doña Keating. K2 Strategic Solutions continues to provide IT, policy, and management consulting at the leadership level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label">The Team</div>
+    <h2>People you'll actually work with.</h2>
+    <p class="lead">A small, focused team with deep expertise across the full technology stack.</p>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-initials">CK</div>
+        <h3>Charles Keating</h3>
+        <div class="role">President &amp; CEO</div>
+        <p>Programming since 1979, consulting since 1983. President of West Sound Technology Association since 2009. Author, <em>The Visual Atlas of Reality</em> (2026). Broad expertise from CMMC compliance to AI architecture.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-initials">DK</div>
+        <h3>Doña Keating</h3>
+        <div class="role">COO · Professional Options · Co-Founder, Convexus</div>
+        <p>Co-founder of West Sound CoderDojo, K2 Strategic Solutions, and Convexus. Board advisor across STEM, cybersecurity, gender equity, and education. Former FIRST Robotics mentor. Member, Cybersecurity Tech Accord.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-initials">MK</div>
+        <h3>Merrill Keating</h3>
+        <div class="role">BSME · University of Washington · Founder, Convexus</div>
+        <p>Mechanical engineer, roboticist, and founder of Convexus — an emerging AI and technology startup. Brings engineering discipline and fresh perspective to client engagements while building something new at the frontier of AI and hardware.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-initials">BM</div>
+        <h3>Brian Morkert</h3>
+        <div class="role">Security Advisor · AuditWest</div>
+        <p>President of AuditWest, Inc. 25+ years in information security. Penetration testing, digital forensics, IT audit, and risk management for enterprises, utilities, and financial institutions. US Air Force veteran.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="partner">
+  <div class="container">
+    <div class="partner-inner">
+      <div class="partner-badge">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <h3>Bainbridge Computer Services — Legacy Clients Welcome</h3>
+        <p>In 2021, KCS assumed IT services for clients of Bob Haslanger's Bainbridge Computer Services — a practice built over 30+ years on the same philosophy we share: expert, consultative, relationship-first service. If you were a BCS client, you're in familiar hands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage">
+  <div class="container">
+    <div class="section-label">Where We Work</div>
+    <h2>Puget Sound Region &amp; National.</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2.5rem; align-items:start;">
+      <div>
+        <p style="font-size:.95rem; color:var(--mid); line-height:1.8; margin-bottom:1.5rem;">Based on Bainbridge Island, we serve clients throughout the Puget Sound Region in person and support clients nationally by remote. We've supported organizations from early-stage startup through IPO, and from individual executives to regional schools and businesses.</p>
+        <p style="font-size:.88rem; color:var(--mid); line-height:1.75;">With 20–30 active clients across a wide range of industries, we operate as a trusted advisor practice — not a body shop. Relationships come first.</p>
+      </div>
+      <div>
+        <p style="font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin-bottom:1rem; font-weight:500;">Client Sectors</p>
+        <div class="counties">
+          <span class="county">Small Business</span>
+          <span class="county">Schools &amp; Education</span>
+          <span class="county">Nonprofits</span>
+          <span class="county">Professional Services</span>
+          <span class="county">Construction &amp; Trades</span>
+          <span class="county">High Net Worth Individuals</span>
+          <span class="county">Technology Startups</span>
+          <span class="county">Paratransit &amp; Transit</span>
+          <span class="county">Government</span>
+          <span class="county">National Remote</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Get in Touch</div>
+        <h2>Let's talk about what you need.</h2>
+        <p class="lead" style="margin-bottom:0;">Whether you're a longtime client, exploring a new engagement, or dealing with something urgent — we respond personally.</p>
+      </div>
+      <div>
+        <div class="contact-item">
+          <div class="label">Phone</div>
+          <a href="tel:3606979009">360-697-9009</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <a href="/cdn-cgi/l/email-protection#ddbebcb69db6beaebeb2f3beb2b0"><span class="__cf_email__" data-cfemail="f596949eb59e9686969adb969a98">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Mailing Address</div>
+          <p>800 Fifth Avenue, Suite 101-191<br>Seattle, WA 98104</p>
+        </div>
+        <div class="contact-item">
+          <div class="label">Also Serving Via</div>
+          <p style="color:rgba(255,255,255,.45); font-size:.82rem;">keatingconsultingservice.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+    <span>© 1983–2025 Keating Consulting Service, Inc. · Integrating People, Business and Technology</span>
+    <span>
+      <a href="/cdn-cgi/l/email-protection#afcccec4efc4ccdcccc081ccc0c2"><span class="__cf_email__" data-cfemail="3251535972595141515d1c515d5f">[email&#160;protected]</span></a>
+      &nbsp;·&nbsp;
+      
